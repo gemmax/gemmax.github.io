@@ -101,7 +101,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"right","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -247,6 +247,406 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://gemmax.github.io/2017/04/02/20170402/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gemmax">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRzAbkvAkLWg8rodYLJN_ZPVHbVW4VaJJsClCBl6xGAYP6bixvNoA">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gemmax's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/02/20170402/" itemprop="url">
+                  20170402
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-02T21:45:22+08:00">
+                2017-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>天行健，君子以自强不息；地势坤，君子以厚德载物。<br>打起精神，面对挑战！</p>
+<p>计划：<br>20170403：crawler4j + 分析源码 + 写总结报告<br>20170404：lucene使用 + 结果查看 + 流程分析 + 总结报告<br>20170405：ICTCLAS论文翻译 + 替换分词功能<br>20170406：撰写毕业论文 + 找出关键技术<br>20170407：替换实现关键功能</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://gemmax.github.io/2017/03/10/简易搜索引擎浅析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gemmax">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRzAbkvAkLWg8rodYLJN_ZPVHbVW4VaJJsClCBl6xGAYP6bixvNoA">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gemmax's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/10/简易搜索引擎浅析/" itemprop="url">
+                  简易搜索引擎浅析
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-10T15:11:48+08:00">
+                2017-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>毕设选定了简易版搜索引擎的设计与实现，主要参考资料是《信息检索导论》。<br>计划实现的模块有：网络采集器（即网络爬虫），索引器，查询模块</p>
+<h2 id="具体功能"><a href="#具体功能" class="headerlink" title="具体功能"></a>具体功能</h2><ul>
+<li><p>网络爬虫：</p>
+<ul>
+<li><p>待采集URL池</p>
+<pre><code>内部实现两类队列，一个根据优先级，另一个根据站点分类。另外采用堆维护待采集URL。采集器从堆里取出URL，保证在多线程环境中，采集过程中，一个站点只被一个采集器访问。
+</code></pre></li>
+<li><p>采集器</p>
+<pre><code>多线程采集URL网页
+</code></pre></li>
+<li><p>URL分析器</p>
+<pre><code>分析提取出网页中的URL，经过去重等操作，把提取过滤出的url放入待采集URL池中。URL池进行一系列优先级调整等策略，在待采集URL堆中填补URL。
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<h2 id="目前实现"><a href="#目前实现" class="headerlink" title="目前实现"></a>目前实现</h2><h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><ul>
+<li><p>网络爬虫</p>
+<ul>
+<li><p>待采集URL池</p>
+<ul>
+<li>getInstance(ArrayList<url> seedset)，参数仅在第一次调用时起作用。 （静态方法）</url></li>
+<li>getUrl()</li>
+<li>addUrl(URL url)</li>
+<li>addUrls(ArrayList<url> urls)</url></li>
+</ul>
+</li>
+<li><p>采集器</p>
+<ul>
+<li>crawlWeb(URL seed) （返回采集网页信息，若无，则为null）</li>
+</ul>
+</li>
+<li>URL分析器<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://gemmax.github.io/2017/03/09/JUnit4入门教程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gemmax">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRzAbkvAkLWg8rodYLJN_ZPVHbVW4VaJJsClCBl6xGAYP6bixvNoA">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gemmax's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/09/JUnit4入门教程/" itemprop="url">
+                  JUnit4入门教程
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-09T11:21:43+08:00">
+                2017-03-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>源代码层级：</p>
+<p>-src (source folder)</p>
+<p>–spider (package)</p>
+<p>—URLPool (class)</p>
+<p>对应的单元测试层级：</p>
+<p>-test (source folder)</p>
+<p>–spider (package)</p>
+<p>—URLPoolTest (class)</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -419,7 +819,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
