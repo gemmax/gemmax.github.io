@@ -87,12 +87,24 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Gemmax's Blog">
-<meta property="og:url" content="http://gemmax.github.io/index.html">
+<meta name="description" content="下载crawler4j源码之后，开始运行example/basic/BasicCrawlController进行测试。
+位于basic目录下，仅有两个文件，查看源码可知，BasicCrawlController是负责爬虫控制规则的配置，而BasicCrawler可配置特定的网页访问规则以及对于采集的网页的操作。
+BasicCrawler首先，通过BasicCrawler探索爬虫的大概功能。1234">
+<meta property="og:type" content="article">
+<meta property="og:title" content="管中窥豹-crawler4j basic demo">
+<meta property="og:url" content="http://gemmax.github.io/2017/04/04/管中窥豹-crawler4j-basic-demo/index.html">
 <meta property="og:site_name" content="Gemmax's Blog">
+<meta property="og:description" content="下载crawler4j源码之后，开始运行example/basic/BasicCrawlController进行测试。
+位于basic目录下，仅有两个文件，查看源码可知，BasicCrawlController是负责爬虫控制规则的配置，而BasicCrawler可配置特定的网页访问规则以及对于采集的网页的操作。
+BasicCrawler首先，通过BasicCrawler探索爬虫的大概功能。1234">
+<meta property="og:image" content="http://gemmax.github.io/img/processPage.png">
+<meta property="og:updated_time" content="2017-04-05T14:16:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gemmax's Blog">
+<meta name="twitter:title" content="管中窥豹-crawler4j basic demo">
+<meta name="twitter:description" content="下载crawler4j源码之后，开始运行example/basic/BasicCrawlController进行测试。
+位于basic目录下，仅有两个文件，查看源码可知，BasicCrawlController是负责爬虫控制规则的配置，而BasicCrawler可配置特定的网页访问规则以及对于采集的网页的操作。
+BasicCrawler首先，通过BasicCrawler探索爬虫的大概功能。1234">
+<meta name="twitter:image" content="http://gemmax.github.io/img/processPage.png">
 
 
 
@@ -120,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://gemmax.github.io/"/>
+  <link rel="canonical" href="http://gemmax.github.io/2017/04/04/管中窥豹-crawler4j-basic-demo/"/>
 
 
 
 
 
-  <title> Gemmax's Blog </title>
+  <title> 管中窥豹-crawler4j basic demo | Gemmax's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -161,9 +173,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -246,9 +256,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -278,10 +288,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/04/04/管中窥豹-crawler4j-basic-demo/" itemprop="url">
-                  管中窥豹-crawler4j basic demo
-                </a>
+                管中窥豹-crawler4j basic demo
               
             
           </h1>
@@ -332,9 +339,7 @@
       
 
       
-        
-          
-            <p>下载crawler4j源码之后，开始运行example/basic/BasicCrawlController进行测试。</p>
+        <p>下载crawler4j源码之后，开始运行example/basic/BasicCrawlController进行测试。</p>
 <p>位于basic目录下，仅有两个文件，查看源码可知，BasicCrawlController是负责爬虫控制规则的配置，而BasicCrawler可配置特定的网页访问规则以及对于采集的网页的操作。</p>
 <h3 id="BasicCrawler"><a href="#BasicCrawler" class="headerlink" title="BasicCrawler"></a>BasicCrawler</h3><p>首先，通过BasicCrawler探索爬虫的大概功能。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BasicCrawler</span> <span class="keyword">extends</span> <span class="title">WebCrawler</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">shouldVisit</span><span class="params">(Page referringPage, WebURL url)</span> </span>&#123;...&#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visit</span><span class="params">(Page page)</span> </span>&#123;...&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>BasicCrawler继承WebCrawler，重写了shouldVisit和visit。前者是对于网页是否应该被采集进行相关改写，添加特定规则。此处跳过以图片后缀结尾的网页抓取。后者在完成抓取网页之后进行调用。</p>
@@ -354,16 +359,20 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">parse</span><span class="params">(Page page, String contextURL)</span></span></div><div class="line">        <span class="keyword">throws</span> XXXException &#123;</div><div class="line">        <span class="keyword">if</span> (Util.hasBinaryContent(page.getContentType())) &#123; </div><div class="line">        <span class="comment">// BINARY</span></div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (Util.hasPlainTextContent(page.getContentType())) &#123; </div><div class="line">        <span class="comment">// plain Text</span></div><div class="line">        &#125; <span class="keyword">else</span> &#123; </div><div class="line">        <span class="comment">// isHTML</span></div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>具体细节省略，parse(.., ..)方法将page类型分为binary，plain text， html三种进行处理，都是为了实现两个目的。其一，将page中的字节流转化为正文提取；其二，将网页中的外链提取出来。</p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
@@ -372,547 +381,38 @@
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://gemmax.github.io/2017/04/02/20170402/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gemmax">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRzAbkvAkLWg8rodYLJN_ZPVHbVW4VaJJsClCBl6xGAYP6bixvNoA">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gemmax's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
         
-        
-          <h1 class="post-title" itemprop="name headline">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/04/02/20170402/" rel="next" title="20170402">
+                <i class="fa fa-chevron-left"></i> 20170402
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2017/04/02/20170402/" itemprop="url">
-                  20170402
-                </a>
-              
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-02T21:45:22+08:00">
-                2017-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>天行健，君子以自强不息；地势坤，君子以厚德载物。<br>打起精神，面对挑战！</p>
-<p>计划：<br>20170403：crawler4j + 分析源码 + 写总结报告<br>20170404：lucene使用 + 结果查看 + 流程分析 + 总结报告<br>20170405：ICTCLAS论文翻译 + 替换分词功能<br>20170406：撰写毕业论文 + 找出关键技术<br>20170407：替换实现关键功能</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://gemmax.github.io/2017/03/10/简易搜索引擎浅析/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gemmax">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRzAbkvAkLWg8rodYLJN_ZPVHbVW4VaJJsClCBl6xGAYP6bixvNoA">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gemmax's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/10/简易搜索引擎浅析/" itemprop="url">
-                  简易搜索引擎浅析
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-10T15:11:48+08:00">
-                2017-03-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>毕设选定了简易版搜索引擎的设计与实现，主要参考资料是《信息检索导论》。<br>计划实现的模块有：网络采集器（即网络爬虫），索引器，查询模块</p>
-<h2 id="具体功能"><a href="#具体功能" class="headerlink" title="具体功能"></a>具体功能</h2><ul>
-<li><p>网络爬虫：</p>
-<ul>
-<li><p>待采集URL池</p>
-<pre><code>内部实现两类队列，一个根据优先级，另一个根据站点分类。另外采用堆维护待采集URL。采集器从堆里取出URL，保证在多线程环境中，采集过程中，一个站点只被一个采集器访问。
-</code></pre></li>
-<li><p>采集器</p>
-<pre><code>多线程采集URL网页
-</code></pre></li>
-<li><p>URL分析器</p>
-<pre><code>分析提取出网页中的URL，经过去重等操作，把提取过滤出的url放入待采集URL池中。URL池进行一系列优先级调整等策略，在待采集URL堆中填补URL。
-</code></pre></li>
-</ul>
-</li>
-</ul>
-<h2 id="目前实现"><a href="#目前实现" class="headerlink" title="目前实现"></a>目前实现</h2><h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><ul>
-<li><p>网络爬虫</p>
-<ul>
-<li><p>待采集URL池</p>
-<ul>
-<li>getInstance(ArrayList<url> seedset)，参数仅在第一次调用时起作用。 （静态方法）</url></li>
-<li>getUrl()</li>
-<li>addUrl(URL url)</li>
-<li>addUrls(ArrayList<url> urls)</url></li>
-</ul>
-</li>
-<li><p>采集器</p>
-<ul>
-<li>crawlWeb(URL seed) （返回采集网页信息，若无，则为null）</li>
-</ul>
-</li>
-<li>URL分析器<ul>
-<li></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://gemmax.github.io/2017/03/09/JUnit4入门教程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gemmax">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRzAbkvAkLWg8rodYLJN_ZPVHbVW4VaJJsClCBl6xGAYP6bixvNoA">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gemmax's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/09/JUnit4入门教程/" itemprop="url">
-                  JUnit4入门教程
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-09T11:21:43+08:00">
-                2017-03-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>源代码层级：</p>
-<p>-src (source folder)</p>
-<p>–spider (package)</p>
-<p>—URLPool (class)</p>
-<p>对应的单元测试层级：</p>
-<p>-test (source folder)</p>
-<p>–spider (package)</p>
-<p>—URLPoolTest (class)</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://gemmax.github.io/2017/03/07/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gemmax">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRzAbkvAkLWg8rodYLJN_ZPVHbVW4VaJJsClCBl6xGAYP6bixvNoA">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gemmax's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/07/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-07T19:06:53+08:00">
-                2017-03-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
+  </div>
 
           
           </div>
@@ -920,6 +420,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -939,8 +443,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRzAbkvAkLWg8rodYLJN_ZPVHbVW4VaJJsClCBl6xGAYP6bixvNoA"
@@ -984,6 +497,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#BasicCrawler"><span class="nav-number">1.</span> <span class="nav-text">BasicCrawler</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1096,6 +625,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
